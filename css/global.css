@@ -937,38 +937,40 @@ section {
 }
 
 .service-area__image {
-  border-radius: 30px;
-  overflow: hidden;
-  height: 480px;
-  background: #ffffff;
+  position: relative;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
 }
 
-.service-area__image img {
+.service-area__frame {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.service-area__map {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 2.5rem;
+  z-index: 1;
+  transform: scale(0.85); /* Adjust so the map is fully visible inside the frame */
   transition: transform var(--transition-medium);
 }
 
-.service-area__image:hover img {
-  transform: scale(1.05);
+.service-area__image:hover .service-area__map {
+  transform: scale(0.88);
 }
 
 @media (max-width: 768px) {
   .service-area__grid {
     grid-template-columns: 1fr;
-  }
-
-  .service-area__image {
-    height: 320px;
-  }
-
-  .service-area__image img {
-    padding: 1.5rem;
   }
 }
