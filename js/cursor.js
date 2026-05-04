@@ -40,7 +40,7 @@
 
   // Update hover interaction to include more elements
   const updateInteractives = () => {
-    const interactives = document.querySelectorAll('a, button, .s3d__btn, .nav__link, .nav__cta, .btn-primary, .btn-outline, .btn-ghost, .nav__hamburger, .service-detail__image-wrap');
+    const interactives = document.querySelectorAll('a, button, .s3d__btn, .nav__link, .nav__cta, .btn-primary, .btn-outline, .btn-ghost, .nav__hamburger, .service-detail__image-wrap, .service-area__pill, .interest-pill');
     interactives.forEach(el => {
       el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
       el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
