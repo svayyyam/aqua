@@ -249,8 +249,8 @@
 
 .service-area__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
 }
 
@@ -282,9 +282,10 @@
 }
 
 .service-area__image {
-  border-radius: var(--glass-radius);
+  border-radius: 30px;
   overflow: hidden;
-  height: 350px;
+  height: 480px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
 }
 
 .service-area__image img {
