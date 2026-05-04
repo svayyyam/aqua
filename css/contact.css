@@ -11,10 +11,16 @@
   background-color: var(--color-bg-primary);
 }
 
+.contact-page .page-hero {
+  height: 45vh;
+  min-height: 350px;
+}
+
 /* ── Contact Layout ── */
 .contact-section {
   background: transparent;
   position: relative;
+  padding-top: 3rem; /* Spacing between hero and form */
 }
 
 .contact-section__grid {

@@ -889,6 +889,7 @@ section {
 
 .service-area {
   background: var(--color-bg-secondary);
+  padding-block: clamp(5rem, 10vw, 10rem);
 }
 
 .service-area__grid {
