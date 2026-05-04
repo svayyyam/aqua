@@ -22,7 +22,7 @@
   <header class="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">
-        <img src="assets/logo-white.jpeg" alt="Aqua Enterprise Logo" id="logo">
+        <img src="assets/compressed/logo-white.webp" alt="Aqua Enterprise Logo" id="logo">
       </a>
       <nav class="nav__links">
         <a href="index.html" class="nav__link">Home</a>
@@ -65,11 +65,11 @@
               </feComponentTransfer>
               <feGaussianBlur stdDeviation="1"/>
               <feComposite operator="in" in="SourceGraphic" result="overlay"/>
-              <feImage id="slide-bg" href="assets/p1-about.png" x="0" y="0" width="1672" height="941" preserveAspectRatio="none" result="underlay"/>
+              <feImage id="slide-bg" href="assets/compressed/p1-about.webp" x="0" y="0" width="1672" height="941" preserveAspectRatio="none" result="underlay"/>
               <feComposite operator="over" in="overlay" in2="underlay"/>
             </filter>
           </defs>
-          <image id="slide-fg" filter="url(#turbulent-dissolve)" x="0" y="0" width="1672" height="941" preserveAspectRatio="none" href="assets/p2-about.png"/>
+          <image id="slide-fg" filter="url(#turbulent-dissolve)" x="0" y="0" width="1672" height="941" preserveAspectRatio="none" href="assets/compressed/p2-about.webp"/>
         </svg>
         <div class="hero-navy-overlay"></div>
       </div>
@@ -81,7 +81,7 @@
       <div class="container">
         <div class="company-story__grid">
           <div class="company-story__image reveal-left">
-            <img src="assets/pexels-kindelmedia-7294661.jpg" alt="Aqua Enterprise Construction" loading="lazy">
+            <img src="assets/compressed/pexels-kindelmedia-7294661.webp" alt="Aqua Enterprise Construction" loading="lazy">
           </div>
           <div class="company-story__content reveal-right">
             <div class="section-label">OUR STORY</div>
@@ -161,7 +161,7 @@
     <div class="footer__grid">
       <div class="footer__col">
         <div class="footer__brand-logo">
-          <img src="assets/logo-white.jpeg" alt="Aqua Enterprise">
+          <img src="assets/compressed/logo-white.webp" alt="Aqua Enterprise">
         </div>
         <div class="footer__tagline">Where Vision Flows Into Reality</div>
         <p class="footer__desc">Vadodara's premier aquatic design and construction professionals, delivering luxury pools and landscapes with uncompromising quality.</p>
@@ -221,11 +221,11 @@
       
       if (svg && fg && bg) {
         const images = [
-          'assets/p1-about.png',
-          'assets/p2-about.png',
-          'assets/p3-about.png',
-          'assets/p4-about.png',
-          'assets/p5-about.png'
+          'assets/compressed/p1-about.webp',
+          'assets/compressed/p2-about.webp',
+          'assets/compressed/p3-about.webp',
+          'assets/compressed/p4-about.webp',
+          'assets/compressed/p5-about.webp'
         ];
         let currentPhase = 0; 
         let bgIndex = 0;
