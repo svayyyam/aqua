@@ -36,7 +36,7 @@
   z-index: 1;
   padding-left: clamp(2rem, 8vw, 8rem);
   max-width: 900px;
-  margin-top: 130px; /* Increased to push content further below nav */
+  margin-top: 180px; /* Increased for more breathing room below nav */
 }
 
 .hero__label {
