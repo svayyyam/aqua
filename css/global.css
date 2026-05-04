@@ -961,12 +961,12 @@ section {
   height: 100%;
   object-fit: contain;
   z-index: 1;
-  transform: scale(0.85); /* Adjust so the map is fully visible inside the frame */
+  transform: scale(0.65); /* Scaled down more to fit within thick borders */
   transition: transform var(--transition-medium);
 }
 
 .service-area__image:hover .service-area__map {
-  transform: scale(0.88);
+  transform: scale(0.68);
 }
 
 @media (max-width: 768px) {
