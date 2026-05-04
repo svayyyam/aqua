@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ease: "none",
                 scrollTrigger: {
                     trigger: ".why-us",
-                    start: "top top",
+                    start: "46% center",
                     end: "+=2000",
                     scrub: 0.5,
                     pin: true,
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             window.addEventListener('resize', renderPool);
-            
+
             ScrollTrigger.sort();
             ScrollTrigger.refresh();
         }
@@ -72,11 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const processCanvas = document.getElementById("process-canvas");
     if (processCanvas) {
         const processCtx = processCanvas.getContext("2d");
-        const processFrameCount = 240;
+        const processFrameCount = 241;
         const processImages = [];
         const processObj = { frame: 0 };
 
-        const processFramePath = index => `assets/process/ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`;
+        const processFramePath = index => `assets/process /ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`;
 
         let processLoaded = 0;
         for (let i = 0; i < processFrameCount; i++) {
@@ -110,26 +110,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
             renderProcess();
 
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".process-gsap",
-                    start: "top 100px",
-                    end: "+=300%",
-                    scrub: 0.3,
-                    pin: true,
-                    anticipatePin: 1
-                }
-            });
+            let mm = gsap.matchMedia();
 
-            tl.to(processObj, {
-                frame: processFrameCount - 1,
-                snap: "frame",
-                ease: "none",
-                onUpdate: renderProcess
+            mm.add("(min-width: 769px)", () => {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".process-gsap",
+                        start: "bottom bottom",
+                        end: "+=300%",
+                        scrub: 0.3,
+                        pin: true,
+                        anticipatePin: 1
+                    }
+                });
+
+                tl.to(processObj, {
+                    frame: processFrameCount - 1,
+                    snap: "frame",
+                    ease: "none",
+                    onUpdate: renderProcess
+                });
             });
 
             window.addEventListener('resize', renderProcess);
-            
+
             ScrollTrigger.sort();
             ScrollTrigger.refresh();
         }

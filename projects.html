@@ -196,16 +196,7 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════════════════
-         INTERLUDE — Full-width statement after gallery
-         ════════════════════════════════════════════════════ -->
-    <section class="gallery-interlude">
-      <div class="gallery-interlude__inner">
-        <span class="section-label section-label--center">Beyond the Surface</span>
-        <h2 class="gallery-interlude__heading">Crafted for Those<br>Who Seek <em>Excellence</em></h2>
-        <p>Every pool we design is a one-of-a-kind composition — engineered for longevity and shaped for wonder.</p>
-      </div>
-    </section>
+
 
     <!-- ════════════════════════════════════════════════════
          SIGNATURE 3D SHOWCASE — Rest of Photos
@@ -654,14 +645,6 @@
         );
       });
 
-      // 5. Gallery Interlude animation
-      gsap.from('.gallery-interlude__heading', {
-        y: 80, opacity: 0, duration: 1.5, ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.gallery-interlude',
-          start: 'top 80%',
-        }
-      });
 
       // 6. Stats counter animation
       gsap.utils.toArray('.stat-number').forEach(el => {

@@ -36,12 +36,14 @@
   z-index: 1;
   padding-left: clamp(2rem, 8vw, 8rem);
   max-width: 900px;
-  margin-top: 180px; /* Increased for more breathing room below nav */
+  margin-top: 180px;
+  /* Increased for more breathing room below nav */
 }
 
 .hero__label {
   font-family: var(--ff-accent);
-  font-size: 1rem; /* Slightly larger for readability */
+  font-size: 1rem;
+  /* Slightly larger for readability */
   letter-spacing: 0.3em;
   color: var(--color-accent-secondary);
   margin-bottom: 2rem;
@@ -49,7 +51,8 @@
 
 .hero__title {
   font-family: var(--ff-display);
-  font-size: clamp(3rem, 6vw, 7rem); /* Reduced size to prevent overlap */
+  font-size: clamp(3rem, 6vw, 7rem);
+  /* Reduced size to prevent overlap */
   line-height: 1.1;
   margin-bottom: 0;
 }
@@ -117,8 +120,9 @@
   height: auto;
   aspect-ratio: 1280 / 668;
   background: var(--color-bg-primary);
-  overflow: hidden;
+  overflow: visible;
   padding: 0;
+  margin-top: 4rem;
 }
 
 .process-gsap__container {
@@ -127,19 +131,101 @@
   height: 100%;
 }
 
+.process-gsap__heading {
+  position: absolute;
+  top: 9.5rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: #ffffff;
+  pointer-events: none;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+}
+
+.process-gsap__frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+  transform: scale(1.05);
+}
+
 #process-canvas {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transform-origin: center center;
-  z-index: 0;
+  z-index: 1;
   opacity: 1;
   filter: brightness(1.15) contrast(1.05);
   image-rendering: auto;
   will-change: contents;
+  transform: scale(0.85);
+}
+
+.process-gsap__mobile-fallback {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+  transform: scale(0.85);
+  filter: brightness(1.15) contrast(1.05);
+}
+
+@media (max-width: 768px) {
+  #process-canvas {
+    display: none !important;
+  }
+
+  .process-gsap__mobile-fallback {
+    display: block;
+  }
+
+  .process-gsap {
+    padding: 2rem 0;
+  }
+
+  .process-gsap__heading {
+    margin-bottom: 1rem;
+  }
+
+  .process-gsap__container {
+    width: 100vw;
+    height: 450px;
+    aspect-ratio: unset;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Hide scrollbar */
+  }
+
+  .process-gsap__container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .process-gsap__frame,
+  #process-canvas,
+  .process-gsap__mobile-fallback {
+    width: 860px;
+    height: 100%;
+  }
 }
 
 .process-gsap__overlay {
@@ -169,7 +255,7 @@
   align-items: center;
 }
 
-.about-snippet__label { }
+.about-snippet__label {}
 
 .about-snippet__heading {
   font-family: var(--ff-display);
@@ -396,19 +482,34 @@
 }
 
 .why-us__animation-box {
-  width: 100%;
-  aspect-ratio: 3/2; /* Matches the original 1158x770 frame */
-  border-radius: 4px;
-  overflow: hidden;
+  width: 90%;
+  aspect-ratio: 9/16;
   position: relative;
-  transform: scale(1.8) translateX(-8%);
-  transform-origin: center center;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.why-us__frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .why-us__animation-box canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Shows the full frame without cropping */
+  object-fit: contain;
+  z-index: 1;
+  transform: scale(0.75);
+  /* Shrink significantly to fit within the thick tile borders */
 }
 
 /* Removed progress bar styles */
@@ -635,12 +736,10 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(4, 13, 26, 0.55) 0%,
-    rgba(0, 60, 110, 0.35) 50%,
-    rgba(4, 13, 26, 0.70) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(4, 13, 26, 0.55) 0%,
+      rgba(0, 60, 110, 0.35) 50%,
+      rgba(4, 13, 26, 0.70) 100%);
 }
 
 .video-showcase__content {
@@ -703,11 +802,9 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 60, 120, 0.45) 0%,
-    rgba(4, 13, 26, 0.55) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(0, 60, 120, 0.45) 0%,
+      rgba(4, 13, 26, 0.55) 100%);
 }
 
 /* ═══════════════════════════════════════════════════════
