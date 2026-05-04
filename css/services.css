@@ -1,0 +1,244 @@
+/* ═══════════════════════════════════════════════════════
+   AQUA ENTERPRISE — Services Page Styles
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Intro ── */
+.services-intro {
+  text-align: center;
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.services-intro__text {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+/* ── Service Detail Cards (Alternating) ── */
+.service-detail {
+  position: relative;
+}
+
+.service-detail__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  margin-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.service-detail__row:last-child {
+  margin-bottom: 0;
+}
+
+.service-detail__row.reverse .service-detail__image-wrap {
+  order: 2;
+}
+
+.service-detail__row.reverse .service-detail__content {
+  order: 1;
+}
+
+.service-detail__image-wrap {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+  border-radius: var(--glass-radius);
+  clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
+}
+
+.service-detail__image-wrap.is-portrait {
+  height: auto;
+  aspect-ratio: 464 / 832;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.service-detail__row.reverse .service-detail__image-wrap.is-portrait {
+  clip-path: none; /* Portrait videos usually look better without the aggressive slant */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-detail__row.reverse .service-detail__image-wrap {
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%);
+}
+
+.service-detail__image-wrap.original-size {
+  height: auto;
+  max-width: 480px; /* Reduced size */
+  max-height: 600px;
+  margin: 0 auto;
+  clip-path: none !important;
+  border-radius: var(--glass-radius);
+  background: transparent;
+}
+
+.service-detail__image-wrap.original-size video {
+  height: auto;
+  object-fit: contain;
+}
+
+.service-detail__image-wrap img,
+.service-detail__image-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.service-detail__image-wrap:hover img,
+.service-detail__image-wrap:hover video {
+  transform: scale(1.05);
+}
+
+.service-detail__image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 119, 182, 0.3);
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.service-detail__image-wrap:hover::after {
+  opacity: 1;
+}
+
+.service-detail__content {
+  position: relative;
+}
+
+.service-detail__number {
+  font-family: var(--ff-accent);
+  font-size: 8rem;
+  color: white;
+  opacity: 0.04;
+  position: absolute;
+  top: -2rem;
+  left: -1rem;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.service-detail__title {
+  font-family: var(--ff-display);
+  font-size: var(--font-h2);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.service-detail__desc {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.service-detail__features {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.service-detail__feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-small);
+}
+
+.service-detail__feature::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent-secondary);
+  flex-shrink: 0;
+}
+
+.service-detail__cta {
+  position: relative;
+}
+
+/* ── Process Condensed ── */
+.process-condensed {
+  background: var(--color-bg-secondary);
+}
+
+.process-condensed__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.process-condensed__card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.process-condensed__number {
+  font-family: var(--ff-accent);
+  font-size: 3rem;
+  color: var(--color-accent-primary);
+  opacity: 0.5;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.process-condensed__name {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.process-condensed__desc {
+  font-size: var(--font-small);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SERVICES — RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .service-detail__row {
+    grid-template-columns: 1fr;
+  }
+
+  .service-detail__row.reverse .service-detail__image-wrap,
+  .service-detail__row.reverse .service-detail__content {
+    order: unset;
+  }
+
+  .service-detail__image-wrap:not(.is-portrait) {
+    height: 300px;
+  }
+  .service-detail__image-wrap.is-portrait {
+    max-width: 350px;
+  }
+  .service-detail__image-wrap {
+    clip-path: none !important;
+    border-radius: var(--glass-radius);
+  }
+
+  .service-detail__number {
+    font-size: 5rem;
+  }
+
+  .process-condensed__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .process-condensed__grid {
+    grid-template-columns: 1fr;
+  }
+}

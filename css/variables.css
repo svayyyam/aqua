@@ -1,0 +1,57 @@
+/* ═══════════════════════════════════════════════════════
+   AQUA ENTERPRISE — Design Tokens / CSS Variables
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Color Palette ── */
+  --color-bg-primary: #040D1A;
+  --color-bg-secondary: #071428;
+  --color-bg-card: #0A1F3D;
+  --color-bg-footer: #020A14;
+
+  --color-accent-primary: #0077B6;
+  --color-accent-secondary: #00B4D8;
+  --color-accent-glow: #48CAE4;
+  --color-accent-light: #90E0EF;
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #AEC9E0;
+  --color-text-muted: #5A7FA0;
+
+  --color-border: rgba(0, 180, 216, 0.15);
+  --color-overlay: rgba(4, 13, 26, 0.85);
+
+  /* ── Typography Scale ── */
+  --font-hero: clamp(3.5rem, 8vw, 9rem);
+  --font-h1: clamp(2.5rem, 5vw, 5rem);
+  --font-h2: clamp(1.8rem, 3.5vw, 3rem);
+  --font-h3: clamp(1.2rem, 2vw, 1.8rem);
+  --font-body: 1rem;
+  --font-small: 0.875rem;
+  --font-label: 0.75rem;
+
+  /* ── Font Families ── */
+  --ff-display: 'Cormorant Garamond', serif;
+  --ff-body: 'DM Sans', sans-serif;
+  --ff-accent: 'Bebas Neue', sans-serif;
+
+  /* ── Spacing ── */
+  --section-padding: clamp(5rem, 10vw, 10rem);
+  --content-max-width: 1300px;
+
+  /* ── Transitions ── */
+  --transition-fast: 0.3s ease;
+  --transition-medium: 0.4s ease;
+  --transition-slow: 0.7s ease;
+
+  /* ── Glassmorphism ── */
+  --glass-bg: rgba(10, 31, 61, 0.6);
+  --glass-blur: blur(12px);
+  --glass-border: 1px solid var(--color-border);
+  --glass-radius: 16px;
+
+  /* ── Shadows ── */
+  --shadow-glow: 0 0 20px rgba(0, 180, 216, 0.3);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-nav: 0 2px 20px rgba(0, 0, 0, 0.3);
+}

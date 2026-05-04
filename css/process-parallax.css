@@ -1,0 +1,251 @@
+/* ═══════════════════════════════════════════════════════
+   AQUA ENTERPRISE — Process Parallax Section (Premium)
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Section Wrapper ── */
+.process-parallax {
+  background-color: #9CB4CC;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.6s ease;
+}
+
+/* Top blend overlay to smooth transition from hero */
+.process-parallax::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to bottom, #9CB4CC 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Bottom blend overlay to smooth transition to next section */
+.process-parallax::before {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(to top, var(--color-bg-primary) 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ── Section Header ── */
+.process-parallax__header {
+  text-align: center;
+  padding: clamp(4rem, 8vw, 8rem) 2rem clamp(2rem, 4vw, 4rem);
+  position: relative;
+  z-index: 1;
+}
+
+.process-parallax__label {
+  font-family: var(--ff-accent);
+  font-size: var(--font-label);
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.process-parallax__heading {
+  font-family: var(--ff-display);
+  font-size: var(--font-h2);
+  color: #fff;
+  font-weight: 400;
+  line-height: 1.2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.process-parallax__heading em {
+  font-style: italic;
+  color: #000;
+}
+
+/* ── Arch Layout ── */
+.process-arch {
+  display: flex;
+  gap: 60px;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Left Column: Text Steps ── */
+.process-arch__left {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  flex: 1;
+  max-width: 420px;
+}
+
+.process-step {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.process-step__inner {
+  padding: 2rem 0;
+}
+
+.process-step__phase {
+  font-family: var(--ff-accent);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.process-step__phase::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+}
+
+.process-step__title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  line-height: 1.15;
+}
+
+.process-step__desc {
+  color: rgba(255,255,255,0.75);
+  font-family: var(--ff-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 380px;
+}
+
+.process-step__desc + .process-step__desc {
+  margin-top: 0.6rem;
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.5);
+  font-style: italic;
+}
+
+/* ── Right Column: Pinned Images ── */
+.process-arch__right {
+  flex-shrink: 1;
+  height: 100vh;
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.process-img-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.4),
+    0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.process-img-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  will-change: clip-path, object-position;
+}
+
+/* subtle inner glow border */
+.process-img-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Bottom Spacer ── */
+.process-parallax__spacer {
+  height: 10vh;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .process-arch {
+    gap: 40px;
+  }
+  .process-arch__left {
+    min-width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .process-arch {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 1rem;
+  }
+
+  .process-arch__left,
+  .process-arch__right {
+    display: contents;
+  }
+
+  .process-arch__right {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .process-img-wrapper {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-bottom: 0;
+    border-radius: 10px;
+  }
+
+  .process-step {
+    height: auto;
+    padding: 3rem 0 1.5rem;
+  }
+
+  .process-parallax__header {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .process-img-wrapper {
+    border-radius: 8px;
+  }
+
+  .process-step__title {
+    font-size: 1.5rem;
+  }
+}

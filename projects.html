@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Projects | Aqua Enterprise</title>
+  <meta name="description" content="Eight signature pool designs — from sky-line infinity edges to liquid glass surfaces. Explore Aqua Enterprise's portfolio of aquatic excellence.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/projects.css">
+  <link rel="stylesheet" href="css/3d-slider.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="projects-page">
+
+  <!-- NAV -->
+  <header class="nav" id="main-nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logo-white.jpeg" alt="Aqua Enterprise Logo" id="logo">
+      </a>
+      <nav class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="about.html" class="nav__link">About</a>
+        <a href="services.html" class="nav__link">Services</a>
+        <a href="projects.html" class="nav__link active">Projects</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </nav>
+      <a href="contact.html" class="nav__cta btn--outline-sm">Get a Quote</a>
+      <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="nav__mobile-overlay">
+    <a href="index.html" class="nav__mobile-link">Home</a>
+    <a href="about.html" class="nav__mobile-link">About</a>
+    <a href="services.html" class="nav__mobile-link">Services</a>
+    <a href="projects.html" class="nav__mobile-link active">Projects</a>
+    <a href="contact.html" class="nav__mobile-link">Contact</a>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="premium-hero">
+      <video class="premium-hero__video" autoplay loop muted playsinline>
+        <source src="assets/hero page.mp4" type="video/mp4">
+      </video>
+      <div class="premium-hero__overlay"></div>
+      <div class="premium-hero__content">
+        <span class="section-label section-label--center fade-up">Aqua Enterprise — Portfolio</span>
+        <h1 class="premium-hero__title fade-up">Our<br><em>Masterpieces</em></h1>
+        <p class="premium-hero__sub fade-up">Thirteen signature visions of aquatic luxury.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         HORIZONTAL SCROLL GALLERY — 8 Photos
+         ════════════════════════════════════════════════════ -->
+    <section id="sectionPin" class="horizontal-gallery">
+      <div class="pin-wrap">
+        <!-- Intro card -->
+        <div class="pin-slide pin-slide--intro">
+          <span class="section-label">The Collection</span>
+          <h2>A Symphony of<br><em>Design & Water</em></h2>
+          <p>Every pool we design is a one-of-a-kind composition — engineered for longevity and shaped for wonder.</p>
+        </div>
+
+        <!-- Photo 1 -->
+        <div class="pin-slide">
+          <div class="pin-slide__img-wrap">
+            <img src="assets/WhatsApp Image 2026-04-25 at 08.23.57.jpeg" alt="Sky-line Infinity">
+          </div>
+          <div class="pin-slide__meta">
+            <span class="pin-slide__number">01</span>
+            <h3>Sky-line Infinity</h3>
+            <p>A vanishing edge that melts into the horizon.</p>
+          </div>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="pin-slide">
+          <div class="pin-slide__img-wrap">
+            <img src="assets/ved pool 11.jpeg" alt="Midnight Obsidian">
+          </div>
+          <div class="pin-slide__meta">
+            <span class="pin-slide__number">02</span>
+            <h3>Midnight Obsidian</h3>
+            <p>Deep tones and dramatic black tile finishes.</p>
+          </div>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="pin-slide">
+          <div class="pin-slide__img-wrap">
+            <img src="assets/WhatsApp Image 2026-04-25 at 08.23.58.jpeg" alt="Sapphire Oasis">
+          </div>
+          <div class="pin-slide__meta">
+            <span class="pin-slide__number">03</span>
+            <h3>Sapphire Oasis</h3>
+            <p>A rich outdoor experience surrounded by nature.</p>
+          </div>
+        </div>
+
+        <!-- Photo 4 -->
+        <div class="pin-slide">
+          <div class="pin-slide__img-wrap">
+            <img src="assets/ved pool 5.jpeg" alt="Lagoon Retreat">
+          </div>
+          <div class="pin-slide__meta">
+            <span class="pin-slide__number">04</span>
+            <h3>Lagoon Retreat</h3>
+            <p>Organic curves inspired by tropical lagoons.</p>
+          </div>
+        </div>
+
+        <!-- Photo 5 -->
+        <div class="pin-slide">
+          <div class="pin-slide__img-wrap">
+            <img src="assets/ved pool 9.jpeg" alt="Classic Finish">
+          </div>
+          <div class="pin-slide__meta">
+            <span class="pin-slide__number">05</span>
+            <h3>Classic Finish</h3>
+            <p>Timeless design with meticulous craftsmanship.</p>
+          </div>
+        </div>
+
+        <!-- Photo 6 -->
+        <div class="pin-slide">
+          <div class="pin-slide__img-wrap">
+            <img src="assets/ved pool 14.jpeg" alt="Geometric Elegance">
+          </div>
+          <div class="pin-slide__meta">
+            <span class="pin-slide__number">06</span>
+            <h3>Geometric Elegance</h3>
+            <p>Angular precision meets aquatic beauty.</p>
+          </div>
+        </div>
+
+        <!-- Photo 7 -->
+        <div class="pin-slide">
+          <div class="pin-slide__img-wrap">
+            <img src="assets/WhatsApp Image 2026-04-25 at 08.23.59.jpeg" alt="Emerald Cove">
+          </div>
+          <div class="pin-slide__meta">
+            <span class="pin-slide__number">07</span>
+            <h3>Emerald Cove</h3>
+            <p>Lush green surroundings with crystalline water.</p>
+          </div>
+        </div>
+
+        <!-- Photo 8 -->
+        <div class="pin-slide">
+          <div class="pin-slide__img-wrap">
+            <img src="assets/pool ved 12.jpeg" alt="Serene Lagoon">
+          </div>
+          <div class="pin-slide__meta">
+            <span class="pin-slide__number">08</span>
+            <h3>Serene Lagoon</h3>
+            <p>Water, stone, and nature in perfect harmony.</p>
+          </div>
+        </div>
+
+        <!-- Photo 9 -->
+        <div class="pin-slide">
+          <div class="pin-slide__img-wrap">
+            <img src="assets/ved pool 4.jpeg" alt="Liquid Glass">
+          </div>
+          <div class="pin-slide__meta">
+            <span class="pin-slide__number">09</span>
+            <h3>Liquid Glass</h3>
+            <p>A flawless reflection of modern architecture.</p>
+          </div>
+        </div>
+
+        <!-- Photo 10 -->
+        <div class="pin-slide">
+          <div class="pin-slide__img-wrap">
+            <img src="assets/WhatsApp Image 2026-04-25 at 08.25.09.jpeg" alt="Infinite Edge">
+          </div>
+          <div class="pin-slide__meta">
+            <span class="pin-slide__number">10</span>
+            <h3>Infinite Edge</h3>
+            <p>Blurring the lines between the pool and the horizon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         INTERLUDE — Full-width statement after gallery
+         ════════════════════════════════════════════════════ -->
+    <section class="gallery-interlude">
+      <div class="gallery-interlude__inner">
+        <span class="section-label section-label--center">Beyond the Surface</span>
+        <h2 class="gallery-interlude__heading">Crafted for Those<br>Who Seek <em>Excellence</em></h2>
+        <p>Every pool we design is a one-of-a-kind composition — engineered for longevity and shaped for wonder.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         SIGNATURE 3D SHOWCASE — Rest of Photos
+         ════════════════════════════════════════════════════ -->
+    <section class="showcase-3d">
+      <div class="showcase-3d__header">
+        <span class="section-label section-label--center">Signature Collection</span>
+        <h2 class="type-h2">Architectural <em>Wonders</em></h2>
+      </div>
+
+      <div class="s3d">
+        <div class="s3d__wrapper">
+          <!-- Slide 1 -->
+          <div class="s3d__slide">
+            <div class="s3d__inner">
+              <img src="assets/pexels-aj-ahamad-767001191-29149085.jpg" class="s3d__img" alt="Azure Reflection">
+            </div>
+            <div class="s3d__info">
+              <h3 class="s3d__title">Azure Reflection</h3>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="s3d__slide">
+            <div class="s3d__inner">
+              <img src="assets/pexels-kindelmedia-7294661.jpg" class="s3d__img" alt="Deep Horizon">
+            </div>
+            <div class="s3d__info">
+              <h3 class="s3d__title">Deep Horizon</h3>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="s3d__slide">
+            <div class="s3d__inner">
+              <img src="assets/pexels-mauroignaciotorres-8839767.jpg" class="s3d__img" alt="Zen Waters">
+            </div>
+            <div class="s3d__info">
+              <h3 class="s3d__title">Zen Waters</h3>
+            </div>
+          </div>
+          <!-- Slide 4 -->
+          <div class="s3d__slide">
+            <div class="s3d__inner">
+              <img src="assets/pool ved 1.jpeg" class="s3d__img" alt="Geometric Precision">
+            </div>
+            <div class="s3d__info">
+              <h3 class="s3d__title">Geometric Precision</h3>
+            </div>
+          </div>
+          <!-- Slide 5 -->
+          <div class="s3d__slide">
+            <div class="s3d__inner">
+              <img src="assets/pool ved 12 copy.jpeg" class="s3d__img" alt="Crystalline Edge">
+            </div>
+            <div class="s3d__info">
+              <h3 class="s3d__title">Crystalline Edge</h3>
+            </div>
+          </div>
+          <!-- Slide 6 -->
+          <div class="s3d__slide">
+            <div class="s3d__inner">
+              <img src="assets/ved pool 3.jpeg" alt="Terracotta Sands" class="s3d__img">
+            </div>
+            <div class="s3d__info">
+              <h3 class="s3d__title">Terracotta Sands</h3>
+            </div>
+          </div>
+          <!-- Slide 7 -->
+          <div class="s3d__slide">
+            <div class="s3d__inner">
+              <img src="assets/ved pool 10.jpeg" alt="Precision Textures" class="s3d__img">
+            </div>
+            <div class="s3d__info">
+              <h3 class="s3d__title">Precision Textures</h3>
+            </div>
+          </div>
+          <!-- Slide 8 -->
+          <div class="s3d__slide">
+            <div class="s3d__inner">
+              <img src="assets/ved pool 13.png" alt="Midnight Mist" class="s3d__img">
+            </div>
+            <div class="s3d__info">
+              <h3 class="s3d__title">Midnight Mist</h3>
+            </div>
+          </div>
+          <!-- Slide 9 -->
+          <div class="s3d__slide">
+            <div class="s3d__inner">
+              <img src="assets/ved pool 15.jpeg" alt="Liquid Glass II" class="s3d__img">
+            </div>
+            <div class="s3d__info">
+              <h3 class="s3d__title">Liquid Glass II</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="s3d__nav">
+          <button class="s3d__btn s3d__btn--prev" aria-label="Previous Slide">
+            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="s3d__btn s3d__btn--next" aria-label="Next Slide">
+            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         ELEGANT PORTFOLIO SECTION (Matches Reference 3)
+         ════════════════════════════════════════════════════ -->
+    <section class="elegant-portfolio">
+      <!-- Top Row -->
+      <div class="ep-row ep-row--top">
+        <div class="ep-col ep-img">
+          <div class="port-img-wrap">
+            <img src="assets/ved pool 10.jpeg" alt="Precision Textures">
+          </div>
+        </div>
+        <div class="ep-col ep-text">
+          <span class="section-label">About Us</span>
+          <h2 class="ep-heading">The Highest Level of<br>Comfort, Convenience<br>and Service</h2>
+          <p>At Aqua Enterprise, we combine premium service with attention to detail. Whether it's a private oasis tailored just for you, or a shared family space — we take care of everything, so you can enjoy every moment.</p>
+          <a href="about.html" class="link-arrow">More About Us ↗</a>
+        </div>
+        <div class="ep-col ep-img ep-tall">
+          <div class="port-img-wrap">
+            <img src="assets/ved pool 3.jpeg" alt="Terracotta Sands">
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle Row -->
+      <div class="ep-row ep-row--mid">
+        <div class="ep-col ep-features">
+          <h3 class="ep-subheading">Why Choose Us?</h3>
+          <div class="ep-feature-grid">
+            <div class="feature-item">
+              <div class="feat-text">
+                <h4>Professional team</h4>
+                <p>With years of experience in pool construction, making sure you enjoy every moment.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feat-text">
+                <h4>Flexibility</h4>
+                <p>From historic landscapes to private residences — we take you where you need to go.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="ep-center-title">
+        <span class="section-label section-label--center">Services</span>
+        <h2 class="ep-heading" style="text-align: center;">What we offer?</h2>
+        <p style="text-align: center; margin: 0 auto; max-width: 600px;">From a private retreat to a scheduled maintenance plan - we've got the perfect option for you.</p>
+      </div>
+
+      <div class="ep-row ep-row--bottom">
+        <div class="ep-col ep-list">
+          <div class="service-pill active">Bespoke Design</div>
+          <div class="service-pill">Scheduled Maintenance</div>
+          <div class="service-pill">Renovations</div>
+          <div class="service-pill">Landscape Accessibility</div>
+        </div>
+        <div class="ep-col ep-img ep-tall">
+          <div class="port-img-wrap">
+            <img src="assets/pool ved 2.jpeg" alt="Leisure Details">
+          </div>
+        </div>
+        <div class="ep-col ep-text">
+          <span class="section-label">As You Wish</span>
+          <h3 class="ep-heading-small">Tailored <em>Private Pools</em><br>in Every Size</h3>
+          <p>Enjoy a personalized journey in our custom designed pools. These designs offer complete flexibility — visit as many styles as you wish, all at your own pace.</p>
+          <div class="feat-item-small">
+            <span class="icon">🌿</span>
+            <p>Perfect for those seeking a custom experience.</p>
+          </div>
+          <a href="services.html" class="link-arrow">Explore Services ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <section class="stats-strip">
+      <div class="stats-grid">
+        <div class="stat-item fade-up">
+          <strong class="stat-number" data-target="150">0</strong>
+          <span class="stat-plus">+</span>
+          <span class="stat-label">Pools Crafted</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item fade-up">
+          <strong class="stat-number" data-target="12">0</strong>
+          <span class="stat-plus">+</span>
+          <span class="stat-label">Years of Excellence</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item fade-up">
+          <strong class="stat-number" data-target="13">0</strong>
+          <span class="stat-label">Signature Designs</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item fade-up">
+          <strong class="stat-number" data-target="100">0</strong>
+          <span class="stat-plus">%</span>
+          <span class="stat-label">Client Satisfaction</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS STRIP -->
+    <section class="process-strip">
+      <div class="process-header fade-up">
+        <span class="section-label section-label--center">How We Work</span>
+        <h2 class="type-h2" style="text-align:center;">From <em>Vision</em> to Water</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step fade-up">
+          <span class="step-no">01</span>
+          <h3>Consultation</h3>
+          <p>We begin with a deep dive into your vision, site conditions, and lifestyle requirements.</p>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step fade-up">
+          <span class="step-no">02</span>
+          <h3>Design</h3>
+          <p>Our architects produce bespoke 3D renderings tailored to your space and aesthetic.</p>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step fade-up">
+          <span class="step-no">03</span>
+          <h3>Build</h3>
+          <p>Master craftsmen execute each detail with uncompromising precision and quality materials.</p>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step fade-up">
+          <span class="step-no">04</span>
+          <h3>Handover</h3>
+          <p>We commission every system and hand you keys to your private aquatic sanctuary.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="premium-cta-section">
+      <img src="assets/about-pool.jpg" class="premium-cta-section__bg" alt="Contact Us">
+      <div class="premium-cta-section__overlay"></div>
+      <div class="cta-inner fade-up">
+        <span class="section-label section-label--center">Begin Your Journey</span>
+        <h2>Ready to Build Your<br><em>Dream Pool?</em></h2>
+        <p>Let's create something extraordinary together. Our team is ready to transform your space.</p>
+        <a href="contact.html" class="btn--primary">Book a Free Consultation</a>
+      </div>
+    </section>
+
+    <!-- PREMIUM LIGHTBOX -->
+    <div class="premium-lightbox" id="lightbox">
+      <div class="premium-lightbox__bg"></div>
+      <button class="premium-lightbox__close" aria-label="Close Lightbox">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <img src="" alt="Enlarged pool view" class="premium-lightbox__img">
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <div class="footer__brand-logo">
+          <img src="assets/logo-white.jpeg" alt="Aqua Enterprise">
+        </div>
+        <div class="footer__tagline">Where Vision Flows Into Reality</div>
+        <p class="footer__desc">Vadodara's premier aquatic design and construction professionals, delivering luxury pools and landscapes with uncompromising quality.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg></a>
+          <a href="#" class="footer__social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg></a>
+          <a href="#" class="footer__social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/></svg></a>
+          <a href="#" class="footer__social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">EXPLORE</h4>
+        <nav>
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="services.html" class="footer__link">Services</a>
+          <a href="projects.html" class="footer__link">Projects</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+        </nav>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">CONTACT US</h4>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24"><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/></svg>
+          <div>Aqua Enterprise HQ<br>Vadodara, Gujarat, India</div>
+        </div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
+          <div>+91 98765 43210</div>
+        </div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24"><path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/></svg>
+          <div>info@aquaenterprise.com</div>
+        </div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24"><path d="M12 20C16.4 20 20 16.4 20 12S16.4 4 12 4 4 7.6 4 12 7.6 20 12 20M12 2C17.5 2 22 6.5 22 12S17.5 22 12 22 2 17.5 2 12 6.5 2 12 2M17 13.9L16.3 15.2L11 12.3V7H12.5V11.4L17 13.9Z"/></svg>
+          <div>Mon-Fri: 9:00 AM - 6:00 PM</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__bottom-inner">
+        <div class="footer__copyright">© 2024 Aqua Enterprise. All Rights Reserved.</div>
+        <div class="footer__location">Vadodara, Gujarat, India</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/cursor.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/3d-slider.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Sticky Nav Logic
+      window.addEventListener('scroll', () => {
+        const nav = document.getElementById('main-nav');
+        if (window.scrollY > 60) {
+          nav.classList.add('nav--scrolled');
+        } else {
+          nav.classList.remove('nav--scrolled');
+        }
+      });
+
+      // 2. GSAP Animations
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero animations
+      gsap.from('.fade-up', {
+        y: 60, opacity: 0, duration: 1.2, ease: 'power3.out', stagger: 0.2, delay: 0.5
+      });
+
+      // ══════════════════════════════════════════════
+      // 3. HORIZONTAL SCROLL GALLERY (ScrollTrigger Pin)
+      // ══════════════════════════════════════════════
+      window.addEventListener('load', () => {
+        const pinWrap = document.querySelector('.pin-wrap');
+        const pinSection = document.querySelector('#sectionPin');
+
+        if (pinWrap && pinSection) {
+          const pinWrapWidth = pinWrap.scrollWidth;
+          const horizontalScrollLength = pinWrapWidth - window.innerWidth;
+
+          const pinTween = gsap.to(pinWrap, {
+            x: -horizontalScrollLength,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: pinSection,
+              pin: true,
+              scrub: 1,
+              start: 'top top',
+              end: () => `+=${pinWrapWidth}`,
+              invalidateOnRefresh: true,
+            }
+          });
+
+          // Animate individual slides as they enter the viewport
+          const slides = gsap.utils.toArray('.pin-slide:not(.pin-slide--intro)');
+
+          slides.forEach((slide, i) => {
+            const imgWrap = slide.querySelector('.pin-slide__img-wrap');
+            const meta = slide.querySelector('.pin-slide__meta');
+
+            // Images scale up and slide in
+            if (imgWrap) {
+              gsap.fromTo(imgWrap, 
+                { scale: 0.8, opacity: 0, y: 40 },
+                {
+                  scale: 1,
+                  opacity: 1,
+                  y: 0,
+                  ease: 'power2.out',
+                  scrollTrigger: {
+                    trigger: imgWrap,
+                    containerAnimation: pinTween,
+                    start: 'left 90%',
+                    end: 'left 50%',
+                    scrub: 1,
+                  }
+                }
+              );
+            }
+          });
+
+          // Parallax for images inside the horizontal scroll
+          slides.forEach(slide => {
+            const img = slide.querySelector('.pin-slide__img-wrap img');
+            if (img) {
+              gsap.fromTo(img, 
+                { xPercent: -10 },
+                {
+                  xPercent: 10,
+                  ease: 'none',
+                  scrollTrigger: {
+                    trigger: pinSection,
+                    start: 'top top',
+                    end: () => `+=${pinWrapWidth}`,
+                    scrub: true,
+                  }
+                }
+              );
+            }
+          });
+        }
+
+        // Refresh after everything loads
+        ScrollTrigger.refresh();
+      });
+
+      // ══════════════════════════════════════════════
+      // 4. Portfolio Block Animations (remaining blocks)
+      // ══════════════════════════════════════════════
+      const imageWraps = gsap.utils.toArray('.premium-portfolio .port-img-wrap');
+      
+      imageWraps.forEach((wrap, i) => {
+        const xOffset = i % 2 === 0 ? -60 : 60;
+
+        gsap.fromTo(wrap, 
+          { x: xOffset, scale: 0.85, opacity: 0.2 },
+          {
+            x: 0, scale: 1, opacity: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: wrap,
+              start: 'top 95%',
+              end: 'center center',
+              scrub: 1,
+            }
+          }
+        );
+      });
+
+      // 5. Gallery Interlude animation
+      gsap.from('.gallery-interlude__heading', {
+        y: 80, opacity: 0, duration: 1.5, ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.gallery-interlude',
+          start: 'top 80%',
+        }
+      });
+
+      // 6. Stats counter animation
+      gsap.utils.toArray('.stat-number').forEach(el => {
+        const target = parseInt(el.dataset.target, 10);
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 85%',
+          onEnter: () => {
+            gsap.to({val: 0}, {
+              val: target, duration: 2, ease: 'power2.out',
+              onUpdate: function() { el.textContent = Math.round(this.targets()[0].val); }
+            });
+          },
+          once: true
+        });
+      });
+
+      // ══════════════════════════════════════════════
+      // 7. PREMIUM LIGHTBOX LOGIC
+      // ══════════════════════════════════════════════
+      const lightbox = document.getElementById('lightbox');
+      if (lightbox) {
+        const lightboxImg = lightbox.querySelector('.premium-lightbox__img');
+        const closeBtn = lightbox.querySelector('.premium-lightbox__close');
+        const bg = lightbox.querySelector('.premium-lightbox__bg');
+
+        // Attach click to all gallery images
+        const allGalleryImgs = document.querySelectorAll('.pin-slide__img-wrap img, .port-img-wrap img');
+        
+        allGalleryImgs.forEach(img => {
+          img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+          });
+        });
+
+        const closeLightbox = () => {
+          lightbox.classList.remove('active');
+          document.body.style.overflow = '';
+          // Optional: clear src after animation
+          setTimeout(() => { if (!lightbox.classList.contains('active')) lightboxImg.src = ''; }, 400);
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+        bg.addEventListener('click', closeLightbox);
+      }
+    });
+  </script>
+</body>
+</html>
