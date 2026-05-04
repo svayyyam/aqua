@@ -3,10 +3,20 @@
    ═══════════════════════════════════════════════════════ */
 
 /* ── Contact Layout ── */
+.contact-section {
+  background-image: linear-gradient(to right, rgba(4, 13, 26, 0.95), rgba(4, 13, 26, 0.8)), url('../assets/bg%20contact.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
 .contact-section__grid {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   gap: clamp(2rem, 5vw, 5rem);
+  position: relative;
+  z-index: 2;
 }
 
 /* ── Left: Contact Info ── */
