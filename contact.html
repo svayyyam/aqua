@@ -119,21 +119,22 @@
               <button type="button" class="interest-pill">Other</button>
             </div>
 
-            <form id="contact-form" action="#">
+            <form id="contact-form" action="https://formspree.io/f/xeenakoe" method="POST">
+              <input type="hidden" name="interests" id="interests-input" value="Residential">
               <div class="contact-form__field">
-                <input type="text" id="name" class="contact-form__input" placeholder="Your Name" required>
+                <input type="text" id="name" name="name" class="contact-form__input" placeholder="Your Name" required>
               </div>
               <div class="contact-form__field">
-                <input type="email" id="email" class="contact-form__input" placeholder="Your Email" required>
+                <input type="email" id="email" name="email" class="contact-form__input" placeholder="Your Email" required>
               </div>
               <div class="contact-form__field">
-                <input type="tel" id="phone" class="contact-form__input" placeholder="Your Phone">
+                <input type="tel" id="phone" name="phone" class="contact-form__input" placeholder="Your Phone">
               </div>
               <div class="contact-form__field">
-                <input type="text" id="city" class="contact-form__input" placeholder="Your City">
+                <input type="text" id="city" name="city" class="contact-form__input" placeholder="Your City">
               </div>
               <div class="contact-form__field">
-                <textarea id="message" class="contact-form__textarea" placeholder="Your Message" required></textarea>
+                <textarea id="message" name="message" class="contact-form__textarea" placeholder="Your Message" required></textarea>
               </div>
               <button type="submit" class="contact-form__submit">Send Message</button>
             </form>
