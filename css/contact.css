@@ -4,7 +4,7 @@
 
 /* ── Page Background ── */
 .contact-page {
-  background-image: linear-gradient(rgba(4, 13, 26, 0.92), rgba(4, 13, 26, 0.92)), url('../assets/bg%20contact.jpg');
+  background-image: linear-gradient(rgba(4, 13, 26, 0.75), rgba(4, 13, 26, 0.75)), url('../assets/bg%20contact.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
