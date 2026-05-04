@@ -894,7 +894,7 @@ section {
 
 .service-area__grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 0.7fr 1.3fr;
   gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
 }
@@ -942,6 +942,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: scale(1.15);
+  transform-origin: center center;
 }
 
 .service-area__frame {
