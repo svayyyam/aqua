@@ -2,12 +2,18 @@
    AQUA ENTERPRISE — Contact Page Styles
    ═══════════════════════════════════════════════════════ */
 
-/* ── Contact Layout ── */
-.contact-section {
-  background-image: linear-gradient(to right, rgba(4, 13, 26, 0.95), rgba(4, 13, 26, 0.8)), url('../assets/bg%20contact.jpg');
+/* ── Page Background ── */
+.contact-page {
+  background-image: linear-gradient(rgba(4, 13, 26, 0.92), rgba(4, 13, 26, 0.92)), url('../assets/bg%20contact.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-color: var(--color-bg-primary);
+}
+
+/* ── Contact Layout ── */
+.contact-section {
+  background: transparent;
   position: relative;
 }
 
@@ -101,6 +107,11 @@
 
 .contact-info__map-link:hover {
   background: var(--color-accent-secondary);
+}
+
+/* ── Service Area (Overridden for Contact Page) ── */
+.contact-page .service-area {
+  background: transparent;
 }
 
 .contact-info__social {
