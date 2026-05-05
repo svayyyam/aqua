@@ -75,13 +75,15 @@
   position: relative;
   background: #040d1a;
   border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden; /* Resetting to hidden to use iframe's internal scroll */
 }
 
 .pdf-iframe {
   width: 100%;
   height: 100%;
   border: none;
-  background: white; /* Most PDF readers expect a white canvas */
+  background: white;
+  display: block;
 }
 
 .pdf-enlarge-btn {
@@ -288,7 +290,16 @@
   }
 
   .company-story__image {
-    height: 350px;
+    height: 450px; /* Increased slightly for better PDF visibility */
+  }
+
+  .pdf-viewer-wrapper {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pdf-iframe {
+    height: 800px; /* Force a taller height on mobile so the wrapper can scroll the PDF content */
   }
 
   .founder-card {
