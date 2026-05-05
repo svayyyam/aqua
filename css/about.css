@@ -83,7 +83,7 @@
   height: 100%;
   position: relative;
   background: #040d1a;
-  padding: 15px; /* Inset PDF so it fits inside the frame border */
+  padding: 50px 40px; /* Increased padding to clear the thick mosaic frame border */
   overflow: hidden;
 }
 
