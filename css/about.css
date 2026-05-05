@@ -68,23 +68,13 @@
   opacity: 1;
 }
 
-.pdf-frame-overlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100; /* Higher to stay above iframe */
-  pointer-events: none;
-  object-fit: fill;
-}
-
+/* ── PDF Viewer Styles ── */
 .pdf-viewer-wrapper {
   width: 100%;
   height: 100%;
   position: relative;
   background: #040d1a;
-  padding: 50px 40px; /* Increased padding to clear the thick mosaic frame border */
-  overflow: hidden;
+  overflow: hidden; /* Resetting to hidden to use iframe's internal scroll */
 }
 
 .pdf-iframe {
@@ -93,13 +83,12 @@
   border: none;
   background: white;
   display: block;
-  border-radius: 4px; /* Slight rounding for the PDF content */
 }
 
 .pdf-enlarge-btn {
   position: absolute;
-  bottom: 70px; /* Moved up to clear the frame border */
-  right: 60px;  /* Moved in to clear the frame border */
+  bottom: 25px;
+  right: 25px;
   background: var(--color-accent-primary);
   color: white;
   padding: 0.9rem 1.5rem;
@@ -114,7 +103,7 @@
   text-decoration: none;
   box-shadow: 0 10px 40px rgba(0,0,0,0.5);
   transition: all var(--transition-fast);
-  z-index: 101; /* Above frame */
+  z-index: 10;
 }
 
 .pdf-enlarge-btn:hover {
