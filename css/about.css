@@ -98,8 +98,8 @@
 
 .pdf-enlarge-btn {
   position: absolute;
-  bottom: 25px;
-  right: 25px;
+  bottom: 70px; /* Moved up to clear the frame border */
+  right: 60px;  /* Moved in to clear the frame border */
   background: var(--color-accent-primary);
   color: white;
   padding: 0.9rem 1.5rem;
