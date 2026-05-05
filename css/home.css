@@ -197,11 +197,19 @@
   }
 
   .process-gsap {
-    padding: 2rem 0;
+    padding: 4rem 0 2rem;
+    height: auto;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .process-gsap__heading {
-    margin-bottom: 1rem;
+    position: relative;
+    top: 0;
+    margin-bottom: 2rem;
+    padding: 0 1.5rem;
   }
 
   .process-gsap__container {
