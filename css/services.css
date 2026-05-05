@@ -67,12 +67,12 @@
 
 .service-detail__image-wrap.original-size {
   height: auto;
-  max-width: 480px; /* Reduced size */
-  max-height: 600px;
+  max-width: 480px; 
   margin: 0 auto;
   clip-path: none !important;
   border-radius: var(--glass-radius);
   background: transparent;
+  overflow: hidden;
 }
 
 .service-detail__image-wrap.original-size video {
@@ -217,7 +217,7 @@
     order: unset;
   }
 
-  .service-detail__image-wrap:not(.is-portrait) {
+  .service-detail__image-wrap:not(.is-portrait):not(.original-size) {
     height: 300px;
   }
   .service-detail__image-wrap.is-portrait {
