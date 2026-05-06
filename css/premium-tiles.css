@@ -1,0 +1,433 @@
+/* ═══════════════════════════════════════════════════════
+   AQUA ENTERPRISE — Premium Tiles Section
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Section Container ── */
+.premium-tiles {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--color-bg-primary) 0%, #051225 50%, var(--color-bg-primary) 100%);
+}
+
+.premium-tiles .container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+}
+
+/* ── Section Header ── */
+.premium-tiles__header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.premium-tiles__label {
+  font-family: var(--ff-accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  color: var(--color-accent-secondary);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.premium-tiles__title {
+  font-family: var(--ff-display);
+  font-size: var(--font-h1);
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+.premium-tiles__title span {
+  color: var(--color-accent-light);
+  font-style: italic;
+}
+
+.premium-tiles__subtitle {
+  font-family: var(--ff-body);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+
+
+/* ── Brand Description Cards ── */
+.premium-tiles__brands {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+.premium-tiles__brand-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-medium);
+  background: var(--color-bg-secondary);
+  aspect-ratio: 3 / 2; /* Matches the 1536x1024 original photo dimensions */
+}
+
+.premium-tiles__brand-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-glow);
+  border-color: rgba(0, 180, 216, 0.4);
+}
+
+.premium-tiles__brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.2s ease;
+}
+
+.premium-tiles__brand-card:hover .premium-tiles__brand-img {
+  transform: scale(1.05);
+}
+
+
+/* ── PDF Catalog Section — Homeplus Style ── */
+.premium-tiles__catalogs-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.premium-tiles__catalogs-title {
+  font-family: var(--ff-display);
+  font-size: var(--font-h2);
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.premium-tiles__catalogs-sub {
+  font-family: var(--ff-body);
+  font-size: var(--font-body);
+  color: var(--color-text-secondary);
+}
+
+/* ── Each PDF Catalog Block — Embedded Preview with Description ── */
+.premium-tiles__catalog-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+.premium-tiles__catalog-block:nth-child(even) {
+  direction: rtl;
+}
+
+.premium-tiles__catalog-block:nth-child(even) > * {
+  direction: ltr;
+}
+
+/* PDF Preview Frame — Replicating About page style */
+.premium-tiles__pdf-preview {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  border-radius: var(--glass-radius);
+  overflow: hidden;
+  background: #040d1a;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+.premium-tiles__pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+  display: block;
+}
+
+/* Enlarge View Button — Same as About Page */
+.premium-tiles__enlarge-btn {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  background: var(--color-accent-primary);
+  color: white;
+  padding: 0.9rem 1.5rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--ff-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transition: all var(--transition-fast);
+  z-index: 10;
+  border: none;
+  cursor: pointer;
+}
+
+.premium-tiles__enlarge-btn:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: var(--color-accent-secondary);
+  box-shadow: var(--shadow-glow);
+}
+
+.premium-tiles__enlarge-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* PDF Info Block */
+.premium-tiles__pdf-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.premium-tiles__pdf-label {
+  font-family: var(--ff-accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--color-accent-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.premium-tiles__pdf-label::before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background: var(--color-accent-secondary);
+}
+
+.premium-tiles__pdf-name {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  color: var(--color-text-primary);
+  line-height: 1.15;
+}
+
+.premium-tiles__pdf-desc {
+  font-family: var(--ff-body);
+  font-size: var(--font-body);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.premium-tiles__pdf-meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.premium-tiles__pdf-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--ff-body);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.premium-tiles__pdf-meta-item svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--color-accent-secondary);
+  flex-shrink: 0;
+}
+
+.premium-tiles__pdf-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.premium-tiles__btn-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+  color: white;
+  font-family: var(--ff-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 6px 20px rgba(0, 119, 182, 0.3);
+}
+
+.premium-tiles__btn-view:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 119, 182, 0.45);
+  filter: brightness(1.1);
+}
+
+.premium-tiles__btn-view svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.premium-tiles__btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 50px;
+  background: transparent;
+  color: var(--color-accent-light);
+  font-family: var(--ff-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(0, 180, 216, 0.3);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.premium-tiles__btn-download:hover {
+  background: rgba(0, 180, 216, 0.1);
+  border-color: var(--color-accent-secondary);
+  transform: translateY(-2px);
+}
+
+.premium-tiles__btn-download svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ── Ambient Background Glow ── */
+.premium-tiles__glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.premium-tiles__glow--1 {
+  top: 10%;
+  left: -8%;
+  background: var(--color-accent-primary);
+}
+
+.premium-tiles__glow--2 {
+  bottom: 15%;
+  right: -5%;
+  background: var(--color-accent-glow);
+}
+
+/* ── All content above glows ── */
+.premium-tiles .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section Divider between catalogs ── */
+.premium-tiles__divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-secondary), transparent);
+  margin: 0 auto clamp(3rem, 5vw, 5rem);
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════════════
+   PREMIUM TILES — RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .premium-tiles__brands {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .premium-tiles__slideshow {
+    aspect-ratio: 16/9;
+    border-radius: 14px;
+  }
+
+  .premium-tiles__brands {
+    grid-template-columns: 1fr;
+  }
+
+  .premium-tiles__catalog-block,
+  .premium-tiles__catalog-block:nth-child(even) {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+
+  .premium-tiles__pdf-preview {
+    height: 450px;
+  }
+
+  .premium-tiles__pdf-preview .premium-tiles__pdf-iframe {
+    height: 800px;
+  }
+
+  .premium-tiles__pdf-preview {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .premium-tiles__slide-caption {
+    bottom: 1.2rem;
+    left: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .premium-tiles__controls {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .premium-tiles__nav-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .premium-tiles__dots {
+    bottom: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .premium-tiles__slideshow {
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+  }
+
+  .premium-tiles__pdf-preview {
+    height: 380px;
+  }
+
+  .premium-tiles__pdf-buttons {
+    flex-direction: column;
+  }
+
+  .premium-tiles__btn-view,
+  .premium-tiles__btn-download {
+    width: 100%;
+    justify-content: center;
+  }
+}

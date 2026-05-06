@@ -45,7 +45,7 @@
   position: relative;
   height: 550px;
   border-radius: var(--glass-radius);
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to show shadow and border correctly */
 }
 
 .company-story__image img {
@@ -62,6 +62,7 @@
   mix-blend-mode: multiply;
   opacity: 0;
   transition: opacity var(--transition-fast);
+  pointer-events: none; /* Fix: Allow interaction with the PDF below */
 }
 
 .company-story__image:hover::after {
@@ -74,7 +75,10 @@
   height: 100%;
   position: relative;
   background: #040d1a;
-  overflow: hidden; /* Resetting to hidden to use iframe's internal scroll */
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  border-radius: var(--glass-radius);
 }
 
 .pdf-iframe {
