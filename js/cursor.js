@@ -6,6 +6,7 @@
   // Skip on touch devices
   if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
 
+/*
   const dot = document.createElement('div');
   dot.className = 'cursor';
   document.body.appendChild(dot);
@@ -37,6 +38,7 @@
     requestAnimationFrame(animateTrail);
   }
   animateTrail();
+*/
 
   // Update hover interaction to include more elements
   const updateInteractives = () => {
