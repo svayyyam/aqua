@@ -807,8 +807,8 @@ section {
     order: 10;
   }
 
-  .nav__logo img {
-    transform: scale(2.0);
+  .nav__logo {
+    display: none;
   }
 }
 
