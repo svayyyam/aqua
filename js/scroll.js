@@ -35,11 +35,20 @@
 
   function playNext() {
     video.src = sources[current];
+    video.muted = true; // Extra safety for Safari
     video.load();
+    
     const playPromise = video.play();
     if (playPromise !== undefined) {
       playPromise.catch(() => {
-        // Auto-play might be blocked, wait for user interaction or just retry
+        // Auto-play might be blocked, wait for user interaction
+        const playOnInteraction = () => {
+          video.play();
+          document.removeEventListener('click', playOnInteraction);
+          document.removeEventListener('touchstart', playOnInteraction);
+        };
+        document.addEventListener('click', playOnInteraction);
+        document.addEventListener('touchstart', playOnInteraction);
       });
     }
     current = (current + 1) % sources.length;

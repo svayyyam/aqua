@@ -57,6 +57,26 @@
       } else {
         window.location.href = href;
       }
-    });
   });
 })();
+
+// ── Safari Autoplay Enforcer ──
+document.addEventListener('DOMContentLoaded', () => {
+  const videos = document.querySelectorAll('video[autoplay]');
+  videos.forEach(video => {
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // If blocked, wait for first user interaction to play
+        const playOnInteraction = () => {
+          video.play();
+          document.removeEventListener('click', playOnInteraction);
+          document.removeEventListener('touchstart', playOnInteraction);
+        };
+        document.addEventListener('click', playOnInteraction);
+        document.addEventListener('touchstart', playOnInteraction);
+      });
+    }
+  });
+});

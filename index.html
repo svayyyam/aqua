@@ -56,20 +56,10 @@
     <!-- Section 1: Hero -->
     <section class="hero">
       <div class="hero__bg">
-        <video id="hero-bg-video" autoplay muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+        <video id="hero-bg-video" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
           <source src="assets/compressed/hero-page.mp4" type="video/mp4">
         </video>
-        <script>
-          const heroVideo = document.getElementById('hero-bg-video');
-          if(heroVideo) {
-            heroVideo.addEventListener('timeupdate', function() {
-              if(this.currentTime >= 16) {
-                this.currentTime = 0;
-                this.play();
-              }
-            });
-          }
-        </script>
+
         <div class="hero-blend-overlay" style="position: absolute; bottom: -1px; left: 0; width: 100%; height: 250px; background: linear-gradient(to top, #0B6EA6 0%, transparent 100%); z-index: 1; pointer-events: none;"></div>
       </div>
       <div class="hero__content">
