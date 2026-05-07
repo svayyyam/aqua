@@ -431,9 +431,10 @@ section {
   display: none;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
-  width: 28px;
-  height: 28px;
+  gap: 6px;
+  width: 40px;
+  height: 40px;
+  padding: 8px; /* Extra hit area */
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%237dd3fc' stroke='white' stroke-width='1'%3E%3Cpath d='M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a1 1 0 0 1-2 0V14h-1.5a1 1 0 0 1 0-2H11v-1.5a1 1 0 0 1 2 0V12h1.5a1 1 0 0 1 0 2H13z'/%3E%3C/svg%3E"), pointer;
   z-index: 1001;
   order: 10; /* Hamburger on the right */
@@ -449,15 +450,16 @@ section {
 }
 
 .nav__hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: translateY(8px) rotate(45deg);
 }
 
 .nav__hamburger.open span:nth-child(2) {
   opacity: 0;
+  transform: translateX(-10px);
 }
 
 .nav__hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* ── Mobile Nav Overlay ── */
