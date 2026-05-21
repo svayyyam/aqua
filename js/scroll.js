@@ -27,9 +27,9 @@
   if (!video) return;
 
   const sources = [
-    'assets/high pressure pt 2.mp4',
-    'assets/waterproofing.mp4',
-    'assets/high pressure washing water .mp4'
+    'assets/compressed/high-pressure-pt-2.mp4',
+    'assets/compressed/waterproofing.mp4',
+    'assets/compressed/high-pressure-washing-water.mp4'
   ];
   let current = 0;
 

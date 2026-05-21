@@ -138,4 +138,19 @@ document.addEventListener('DOMContentLoaded', () => {
             ScrollTrigger.refresh();
         }
     }
+
+    // ─── Progressive Video Fade-in (Hero Section) ───
+    const heroVideo = document.getElementById("hero-bg-video");
+    if (heroVideo) {
+        if (heroVideo.readyState >= 3) {
+            heroVideo.classList.add("video-loaded");
+        } else {
+            heroVideo.addEventListener("playing", () => {
+                heroVideo.classList.add("video-loaded");
+            });
+            heroVideo.addEventListener("canplay", () => {
+                heroVideo.classList.add("video-loaded");
+            });
+        }
+    }
 });

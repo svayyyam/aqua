@@ -16,12 +16,39 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  background-color: #040d1a; /* fallback dark background */
+}
+
+.hero__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/compressed/hero-background.webp');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.hero__bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+  position: relative;
+}
+
+.hero__bg video.video-loaded {
+  opacity: 1;
 }
 
 .hero__bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: relative;
+  z-index: 1;
 }
 
 .hero__bg::after {
