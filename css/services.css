@@ -54,10 +54,12 @@
   aspect-ratio: 464 / 832;
   max-width: 450px;
   margin: 0 auto;
+  clip-path: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .service-detail__row.reverse .service-detail__image-wrap.is-portrait {
-  clip-path: none; /* Portrait videos usually look better without the aggressive slant */
+  clip-path: none !important;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
