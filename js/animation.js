@@ -27,13 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
         function initPoolAnimation() {
             const imgW = poolImages[0].naturalWidth;
             const imgH = poolImages[0].naturalHeight;
-            const dpr = window.devicePixelRatio || 1;
+            // Limit DPR to improve scrolling performance
+            const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
 
             poolCanvas.width = imgW * dpr;
             poolCanvas.height = imgH * dpr;
             poolCtx.scale(dpr, dpr);
             poolCtx.imageSmoothingEnabled = true;
-            poolCtx.imageSmoothingQuality = 'high';
+            poolCtx.imageSmoothingQuality = 'low';
 
             const renderPool = () => {
                 if (!poolImages[poolObj.frame]) return;
@@ -99,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             processCanvas.width = imgW;
             processCanvas.height = imgH;
             processCtx.imageSmoothingEnabled = true;
-            processCtx.imageSmoothingQuality = 'high';
+            processCtx.imageSmoothingQuality = 'low';
 
             const renderProcess = () => {
                 const f = Math.round(processObj.frame);

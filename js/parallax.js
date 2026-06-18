@@ -12,7 +12,7 @@
   function updateParallax() {
     const scrollY = window.scrollY;
     if (heroImg) {
-      heroImg.style.transform = `translateY(${scrollY * 0.4}px)`;
+      heroImg.style.transform = `translate3d(0, ${scrollY * 0.4}px, 0)`;
     }
     ticking = false;
   }
