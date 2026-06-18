@@ -38,12 +38,17 @@
     <img src="assets/compressed/logo-white.webp" alt="Loading...">
   </div>
   <script>
+    const preloaderStart = Date.now();
     window.addEventListener('load', () => {
+      const elapsed = Date.now() - preloaderStart;
+      const remaining = Math.max(0, 3000 - elapsed);
       const preloader = document.getElementById('preloader');
-      if (preloader) {
-        preloader.classList.add('hidden');
-        setTimeout(() => preloader.remove(), 600);
-      }
+      setTimeout(() => {
+        if (preloader) {
+          preloader.classList.add('hidden');
+          setTimeout(() => preloader.remove(), 600);
+        }
+      }, remaining);
     });
   </script>
   <!-- Navigation -->
