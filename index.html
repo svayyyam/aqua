@@ -33,7 +33,19 @@
   <link rel="stylesheet" href="css/premium-tiles.css">
 </head>
 <body>
-
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <img src="assets/compressed/logo-white.webp" alt="Loading...">
+  </div>
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.classList.add('hidden');
+        setTimeout(() => preloader.remove(), 600);
+      }
+    });
+  </script>
   <!-- Navigation -->
   <header class="nav">
     <div class="nav__inner">

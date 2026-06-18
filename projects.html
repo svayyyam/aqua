@@ -34,7 +34,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body class="projects-page">
-
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <img src="assets/compressed/logo-white.webp" alt="Loading...">
+  </div>
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.classList.add('hidden');
+        setTimeout(() => preloader.remove(), 600);
+      }
+    });
+  </script>
   <!-- NAV -->
   <header class="nav" id="main-nav">
     <div class="nav__inner">
