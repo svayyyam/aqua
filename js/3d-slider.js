@@ -51,10 +51,19 @@
     const inner = slide.querySelector('.s3d__inner');
     const img = slide.querySelector('.s3d__img');
     
+    let rect = null;
+    
+    slide.addEventListener('mouseenter', () => {
+      rect = slide.getBoundingClientRect();
+    });
+    
     slide.addEventListener('mousemove', (e) => {
       if (!slide.hasAttribute('data-current')) return;
       
-      const rect = slide.getBoundingClientRect();
+      if (!rect) {
+        rect = slide.getBoundingClientRect();
+      }
+      
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       

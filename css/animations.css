@@ -7,6 +7,8 @@
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .reveal.visible {
@@ -25,6 +27,8 @@
   opacity: 0;
   transform: translateX(-60px);
   transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .reveal-left.visible {
@@ -37,6 +41,8 @@
   opacity: 0;
   transform: translateX(60px);
   transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .reveal-right.visible {
@@ -146,6 +152,7 @@
   opacity: 0;
   transform: translateY(-20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: transform, opacity;
 }
 
 .page-transition-in {
@@ -158,6 +165,8 @@
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.6s ease forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 /* ── Staggered delays for hero words ── */

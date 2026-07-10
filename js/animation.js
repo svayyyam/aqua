@@ -62,7 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            window.addEventListener('resize', renderPool);
+            let poolResizeTimer;
+            window.addEventListener('resize', () => {
+              clearTimeout(poolResizeTimer);
+              poolResizeTimer = setTimeout(renderPool, 150);
+            });
 
             ScrollTrigger.sort();
             ScrollTrigger.refresh();
@@ -133,7 +137,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            window.addEventListener('resize', renderProcess);
+            let processResizeTimer;
+            window.addEventListener('resize', () => {
+              clearTimeout(processResizeTimer);
+              processResizeTimer = setTimeout(renderProcess, 150);
+            });
 
             ScrollTrigger.sort();
             ScrollTrigger.refresh();

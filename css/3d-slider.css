@@ -57,6 +57,8 @@
     opacity var(--s3d-transition),
     filter var(--s3d-transition);
   transform-style: preserve-3d;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -174,8 +176,9 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
   backdrop-filter: blur(10px);
+  will-change: transform;
 }
 
 .s3d__btn:hover {

@@ -371,7 +371,10 @@
   border-radius: var(--glass-radius);
   overflow: hidden;
   background: var(--color-bg-card);
-  transition: all var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  will-change: transform;
+  backface-visibility: hidden;
+  contain: layout style;
 }
 
 .project-card:hover {
@@ -565,7 +568,9 @@
 
 .service-card {
   padding: 2rem;
-  transition: all var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  will-change: transform;
+  contain: layout style;
 }
 
 .service-card__icon {
@@ -624,6 +629,8 @@
   gap: 3rem;
   animation: scrollMarquee 25s linear infinite;
   width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .awards-strip__item {

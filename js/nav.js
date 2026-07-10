@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
           document.removeEventListener('touchstart', playOnInteraction);
         };
         document.addEventListener('click', playOnInteraction);
-        document.addEventListener('touchstart', playOnInteraction);
+        document.addEventListener('touchstart', playOnInteraction, { passive: true });
       });
     }
   });
