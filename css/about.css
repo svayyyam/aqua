@@ -293,7 +293,7 @@
   }
 
   .company-story__image {
-    height: 450px; /* Increased slightly for better PDF visibility */
+    height: auto; /* Allow container to expand with pdf and button */
   }
 
   .pdf-viewer-wrapper {
