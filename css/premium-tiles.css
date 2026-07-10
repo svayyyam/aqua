@@ -378,16 +378,28 @@
   }
 
   .premium-tiles__pdf-preview {
-    height: 450px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
   }
 
   .premium-tiles__pdf-preview .premium-tiles__pdf-iframe {
-    height: 800px;
+    height: 500px;
+    flex-shrink: 0;
   }
 
   .premium-tiles__pdf-preview {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .premium-tiles__enlarge-btn {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: 20px auto 0;
+    width: max-content;
   }
 
   .premium-tiles__slide-caption {

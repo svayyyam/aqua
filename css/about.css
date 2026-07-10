@@ -299,10 +299,23 @@
   .pdf-viewer-wrapper {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    height: auto;
   }
 
   .pdf-iframe {
-    height: 800px; /* Force a taller height on mobile so the wrapper can scroll the PDF content */
+    height: 600px; /* Force a taller height on mobile so the wrapper can scroll the PDF content */
+    flex-shrink: 0;
+  }
+
+  .pdf-enlarge-btn {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: 20px auto 0;
+    width: max-content;
   }
 
   .founder-card {
