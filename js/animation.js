@@ -1,6 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
 
+    // Helper for low-concurrency background image loading
+    function startBackgroundLoading(imagesArray, totalCount, pathResolver, startIndex) {
+        let index = startIndex;
+        const concurrency = 4; // limit parallel downloads to keep browser highly responsive
+        
+        function loadNext() {
+            if (index >= totalCount) return;
+            const currentIdx = index++;
+            const img = imagesArray[currentIdx];
+            img.onload = () => {
+                loadNext();
+            };
+            img.onerror = () => {
+                loadNext(); // skip bad frame
+            };
+            img.src = pathResolver(currentIdx);
+        }
+
+        for (let c = 0; c < concurrency; c++) {
+            loadNext();
+        }
+    }
+
     // ─── Pool Animation (Why Us Section) ───
     const poolCanvas = document.getElementById("pool-animation-canvas");
     if (poolCanvas) {
@@ -8,45 +31,57 @@ document.addEventListener('DOMContentLoaded', () => {
         const poolFrameCount = 123;
         const poolImages = [];
         const poolObj = { frame: 0 };
-
         const poolFramePath = index => `assets/pool animation /ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`;
 
-        let poolLoaded = 0;
+        // Pre-create image elements
         for (let i = 0; i < poolFrameCount; i++) {
-            const img = new Image();
-            img.onload = () => {
-                poolLoaded++;
-                if (poolLoaded === poolFrameCount) {
-                    initPoolAnimation();
-                }
-            };
-            img.src = poolFramePath(i);
-            poolImages.push(img);
+            poolImages.push(new Image());
         }
 
-        function initPoolAnimation() {
-            const imgW = poolImages[0].naturalWidth;
-            const imgH = poolImages[0].naturalHeight;
-            // Limit DPR to improve scrolling performance
-            const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+        // Helper to find closest loaded frame
+        const getClosestPoolFrame = (target) => {
+            if (poolImages[target] && poolImages[target].complete && poolImages[target].naturalWidth !== 0) {
+                return poolImages[target];
+            }
+            for (let offset = 1; offset < poolFrameCount; offset++) {
+                if (target - offset >= 0) {
+                    const img = poolImages[target - offset];
+                    if (img && img.complete && img.naturalWidth !== 0) return img;
+                }
+                if (target + offset < poolFrameCount) {
+                    const img = poolImages[target + offset];
+                    if (img && img.complete && img.naturalWidth !== 0) return img;
+                }
+            }
+            return null;
+        };
 
-            poolCanvas.width = imgW * dpr;
-            poolCanvas.height = imgH * dpr;
-            poolCtx.scale(dpr, dpr);
-            poolCtx.imageSmoothingEnabled = true;
-            poolCtx.imageSmoothingQuality = 'low';
+        const renderPool = () => {
+            const frame = Math.round(poolObj.frame);
+            const img = getClosestPoolFrame(frame);
+            if (!img) return;
+            // Draw at native resolution (no DPR multiplier to prevent huge canvas rendering lag in Safari)
+            const imgW = img.naturalWidth;
+            const imgH = img.naturalHeight;
+            if (poolCanvas.width !== imgW || poolCanvas.height !== imgH) {
+                poolCanvas.width = imgW;
+                poolCanvas.height = imgH;
+                poolCtx.imageSmoothingEnabled = true;
+                poolCtx.imageSmoothingQuality = 'low';
+            }
+            poolCtx.clearRect(0, 0, imgW, imgH);
+            poolCtx.drawImage(img, 0, 0, imgW, imgH);
+        };
 
-            const renderPool = () => {
-                if (!poolImages[poolObj.frame]) return;
-                poolCtx.clearRect(0, 0, imgW, imgH);
-                poolCtx.drawImage(
-                    poolImages[poolObj.frame],
-                    0, 0, imgW, imgH
-                );
-            };
-
+        // Load frame 0 first to render immediately
+        poolImages[0].onload = () => {
             renderPool();
+            initPoolScrollTrigger();
+            startBackgroundLoading(poolImages, poolFrameCount, poolFramePath, 1);
+        };
+        poolImages[0].src = poolFramePath(0);
 
+        function initPoolScrollTrigger() {
             gsap.to(poolObj, {
                 frame: poolFrameCount - 1,
                 snap: "frame",
@@ -75,46 +110,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ─── Process Animation (New Process Section) ───
     const processCanvas = document.getElementById("process-canvas");
-    if (processCanvas) {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    if (processCanvas && !isMobile) {
         const processCtx = processCanvas.getContext("2d");
         const processFrameCount = 241;
         const processImages = [];
         const processObj = { frame: 0 };
-
         const processFramePath = index => `assets/process /ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`;
 
-        let processLoaded = 0;
+        // Pre-create image elements
         for (let i = 0; i < processFrameCount; i++) {
-            const img = new Image();
-            img.onload = () => {
-                processLoaded++;
-                if (processLoaded === processFrameCount) {
-                    initProcessAnimation();
-                }
-            };
-            img.src = processFramePath(i);
-            processImages.push(img);
+            processImages.push(new Image());
         }
 
-        function initProcessAnimation() {
-            const imgW = processImages[0].naturalWidth;
-            const imgH = processImages[0].naturalHeight;
+        const getClosestProcessFrame = (target) => {
+            if (processImages[target] && processImages[target].complete && processImages[target].naturalWidth !== 0) {
+                return processImages[target];
+            }
+            for (let offset = 1; offset < processFrameCount; offset++) {
+                if (target - offset >= 0) {
+                    const img = processImages[target - offset];
+                    if (img && img.complete && img.naturalWidth !== 0) return img;
+                }
+                if (target + offset < processFrameCount) {
+                    const img = processImages[target + offset];
+                    if (img && img.complete && img.naturalWidth !== 0) return img;
+                }
+            }
+            return null;
+        };
 
-            // Set canvas to native image resolution — no DPR upscaling
-            processCanvas.width = imgW;
-            processCanvas.height = imgH;
-            processCtx.imageSmoothingEnabled = true;
-            processCtx.imageSmoothingQuality = 'low';
+        const renderProcess = () => {
+            const frame = Math.round(processObj.frame);
+            const img = getClosestProcessFrame(frame);
+            if (!img) return;
+            const imgW = img.naturalWidth;
+            const imgH = img.naturalHeight;
+            if (processCanvas.width !== imgW || processCanvas.height !== imgH) {
+                processCanvas.width = imgW;
+                processCanvas.height = imgH;
+                processCtx.imageSmoothingEnabled = true;
+                processCtx.imageSmoothingQuality = 'low';
+            }
+            processCtx.clearRect(0, 0, imgW, imgH);
+            processCtx.drawImage(img, 0, 0, imgW, imgH);
+        };
 
-            const renderProcess = () => {
-                const f = Math.round(processObj.frame);
-                if (!processImages[f]) return;
-                processCtx.clearRect(0, 0, imgW, imgH);
-                processCtx.drawImage(processImages[f], 0, 0, imgW, imgH);
-            };
-
+        // Load frame 0 first to render immediately
+        processImages[0].onload = () => {
             renderProcess();
+            initProcessScrollTrigger();
+            startBackgroundLoading(processImages, processFrameCount, processFramePath, 1);
+        };
+        processImages[0].src = processFramePath(0);
 
+        function initProcessScrollTrigger() {
             let mm = gsap.matchMedia();
 
             mm.add("(min-width: 769px)", () => {

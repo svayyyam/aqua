@@ -69,7 +69,8 @@
       // All images start fully visible; stacking order handles visibility
       gsap.set(imgs, {
         clipPath: "inset(0% 0% 0% 0%)",
-        objectPosition: "center 20%"
+        scale: 1.15,
+        yPercent: -5
       });
 
       // Build the timeline: for each transition, clip away the current top image
@@ -95,7 +96,7 @@
           currentImg,
           {
             clipPath: "inset(0% 0% 100% 0%)",
-            objectPosition: "center 80%",
+            yPercent: 5,
             duration: 1.5,
             ease: "none"
           },
@@ -105,9 +106,9 @@
         // Subtle parallax shift on the incoming image
         sectionTL.fromTo(
           nextImg,
-          { objectPosition: "center 0%" },
+          { yPercent: -5 },
           {
-            objectPosition: "center 30%",
+            yPercent: 0,
             duration: 1.5,
             ease: "none"
           },
