@@ -15,6 +15,9 @@
   <title>Aqua Enterprise | Vadodara's Premier Aquatic Design</title>
   <meta name="description" content="Vadodara's premier aquatic design and construction professionals. Where Vision Flows Into Reality.">
   
+  <!-- Preload critical resources -->
+  <link rel="preload" as="video" href="assets/compressed/hero-page.mp4" type="video/mp4">
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/favicon.png?v=3">
   <link rel="shortcut icon" href="assets/favicon.png?v=3">
@@ -41,7 +44,7 @@
     const preloaderStart = Date.now();
     window.addEventListener('load', () => {
       const elapsed = Date.now() - preloaderStart;
-      const remaining = Math.max(0, 3000 - elapsed);
+      const remaining = Math.max(0, 1200 - elapsed);
       const preloader = document.getElementById('preloader');
       setTimeout(() => {
         if (preloader) {
@@ -86,7 +89,7 @@
     <!-- Section 1: Hero -->
     <section class="hero">
       <div class="hero__bg">
-        <video id="hero-bg-video" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+        <video id="hero-bg-video" autoplay muted loop playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover;">
           <source src="assets/compressed/hero-page.mp4" type="video/mp4">
         </video>
 
@@ -230,8 +233,7 @@
     <!-- Section 6b: Video Showcase -->
     <section class="video-showcase">
       <div class="video-showcase__inner">
-        <video class="video-showcase__video" autoplay muted loop playsinline>
-          <source src="assets/compressed/pexels.mp4" type="video/mp4">
+        <video class="video-showcase__video" muted loop playsinline preload="none" data-src="assets/compressed/pexels.mp4">
         </video>
         <div class="video-showcase__overlay"></div>
         <div class="video-showcase__content">
@@ -283,7 +285,7 @@
         <!-- Catalog 1: Piccolo Aqua Reflection -->
         <div class="premium-tiles__catalog-block">
           <div class="premium-tiles__pdf-preview">
-            <iframe src="assets/pdfjs/web/viewer.html?file=../../premium-tiles/piccolo-aqua-reflection.pdf#toolbar=0" class="premium-tiles__pdf-iframe" title="Piccolo Aqua Reflection Catalog"></iframe>
+            <iframe data-src="assets/pdfjs/web/viewer.html?file=../../premium-tiles/piccolo-aqua-reflection.pdf#toolbar=0" class="premium-tiles__pdf-iframe" title="Piccolo Aqua Reflection Catalog"></iframe>
             <a href="assets/premium-tiles/piccolo-aqua-reflection.pdf" target="_blank" class="premium-tiles__enlarge-btn">
               <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
               <span>Enlarge View</span>
@@ -323,7 +325,7 @@
         <!-- Catalog 2: Piccolo Full Catalog -->
         <div class="premium-tiles__catalog-block">
           <div class="premium-tiles__pdf-preview">
-            <iframe src="assets/pdfjs/web/viewer.html?file=../../premium-tiles/piccolo-catalog.pdf#toolbar=0" class="premium-tiles__pdf-iframe" title="Piccolo Full Catalog"></iframe>
+            <iframe data-src="assets/pdfjs/web/viewer.html?file=../../premium-tiles/piccolo-catalog.pdf#toolbar=0" class="premium-tiles__pdf-iframe" title="Piccolo Full Catalog"></iframe>
             <a href="assets/premium-tiles/piccolo-catalog.pdf" target="_blank" class="premium-tiles__enlarge-btn">
               <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
               <span>Enlarge View</span>
@@ -363,7 +365,7 @@
         <!-- Catalog 3: Piccolo® Premium -->
         <div class="premium-tiles__catalog-block">
           <div class="premium-tiles__pdf-preview">
-            <iframe src="assets/pdfjs/web/viewer.html?file=../../premium-tiles/piccolo-premium.pdf#toolbar=0" class="premium-tiles__pdf-iframe" title="Piccolo Premium Collection"></iframe>
+            <iframe data-src="assets/pdfjs/web/viewer.html?file=../../premium-tiles/piccolo-premium.pdf#toolbar=0" class="premium-tiles__pdf-iframe" title="Piccolo Premium Collection"></iframe>
             <a href="assets/premium-tiles/piccolo-premium.pdf" target="_blank" class="premium-tiles__enlarge-btn">
               <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
               <span>Enlarge View</span>
@@ -431,7 +433,7 @@
     <!-- Section 9: CTA Banner -->
     <section class="cta-banner cta-banner--photo">
       <div class="cta-banner__bg">
-        <img src="assets/pool ved 12.jpeg" alt="Luxury Pool" loading="lazy" decoding="async">
+        <img src="assets/compressed/pool ved 12.webp" alt="Luxury Pool" loading="lazy" decoding="async">
       </div>
       <div class="container" style="position:relative; z-index:2;">
         <h2 class="cta-banner__heading">Ready To Build Your Dream Pool?</h2>
@@ -502,5 +504,53 @@
   <script src="js/parallax.js"></script>
   <script src="js/animation.js"></script>
   <script src="js/premium-tiles.js"></script>
+
+  <!-- Lazy-load PDF iframes & deferred video showcase -->
+  <script>
+    (function() {
+      // Lazy-load PDF iframes when they scroll into view
+      var lazyIframes = document.querySelectorAll('iframe[data-src]');
+      if (lazyIframes.length && 'IntersectionObserver' in window) {
+        var iframeObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var iframe = entry.target;
+              iframe.src = iframe.getAttribute('data-src');
+              iframe.removeAttribute('data-src');
+              iframeObserver.unobserve(iframe);
+            }
+          });
+        }, { rootMargin: '200px 0px' });
+        lazyIframes.forEach(function(iframe) { iframeObserver.observe(iframe); });
+      } else {
+        // Fallback: load all immediately
+        lazyIframes.forEach(function(iframe) {
+          iframe.src = iframe.getAttribute('data-src');
+        });
+      }
+
+      // Lazy-load video showcase when it scrolls into view
+      var lazyVideos = document.querySelectorAll('video[data-src]');
+      if (lazyVideos.length && 'IntersectionObserver' in window) {
+        var videoObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var video = entry.target;
+              var src = video.getAttribute('data-src');
+              video.removeAttribute('data-src');
+              var source = document.createElement('source');
+              source.src = src;
+              source.type = 'video/mp4';
+              video.appendChild(source);
+              video.load();
+              video.play().catch(function() {});
+              videoObserver.unobserve(video);
+            }
+          });
+        }, { rootMargin: '300px 0px' });
+        lazyVideos.forEach(function(video) { videoObserver.observe(video); });
+      }
+    })();
+  </script>
 </body>
 </html>

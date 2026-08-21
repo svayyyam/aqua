@@ -73,13 +73,31 @@ document.addEventListener('DOMContentLoaded', () => {
             poolCtx.drawImage(img, 0, 0, imgW, imgH);
         };
 
-        // Load frame 0 first to render immediately
-        poolImages[0].onload = () => {
-            renderPool();
-            initPoolScrollTrigger();
-            startBackgroundLoading(poolImages, poolFrameCount, poolFramePath, 1);
-        };
-        poolImages[0].src = poolFramePath(0);
+        function initPoolAnimation() {
+            // Load frame 0 first to render immediately
+            poolImages[0].onload = () => {
+                renderPool();
+                initPoolScrollTrigger();
+                startBackgroundLoading(poolImages, poolFrameCount, poolFramePath, 1);
+            };
+            poolImages[0].src = poolFramePath(0);
+        }
+
+        // Defer loading until section is near viewport
+        const poolSection = document.querySelector('.why-us');
+        if (poolSection && 'IntersectionObserver' in window) {
+            const poolObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        initPoolAnimation();
+                        poolObserver.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '600px 0px' });
+            poolObserver.observe(poolSection);
+        } else {
+            initPoolAnimation();
+        }
 
         function initPoolScrollTrigger() {
             gsap.to(poolObj, {
@@ -157,13 +175,31 @@ document.addEventListener('DOMContentLoaded', () => {
             processCtx.drawImage(img, 0, 0, imgW, imgH);
         };
 
-        // Load frame 0 first to render immediately
-        processImages[0].onload = () => {
-            renderProcess();
-            initProcessScrollTrigger();
-            startBackgroundLoading(processImages, processFrameCount, processFramePath, 1);
-        };
-        processImages[0].src = processFramePath(0);
+        function initProcessAnimation() {
+            // Load frame 0 first to render immediately
+            processImages[0].onload = () => {
+                renderProcess();
+                initProcessScrollTrigger();
+                startBackgroundLoading(processImages, processFrameCount, processFramePath, 1);
+            };
+            processImages[0].src = processFramePath(0);
+        }
+
+        // Defer loading until section is near viewport
+        const processSection = document.querySelector('.process-gsap');
+        if (processSection && 'IntersectionObserver' in window) {
+            const processObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        initProcessAnimation();
+                        processObserver.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '600px 0px' });
+            processObserver.observe(processSection);
+        } else {
+            initProcessAnimation();
+        }
 
         function initProcessScrollTrigger() {
             let mm = gsap.matchMedia();

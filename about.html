@@ -108,7 +108,7 @@
         <div class="company-story__grid">
           <div class="company-story__image reveal-left">
             <div class="pdf-viewer-wrapper">
-              <iframe src="assets/pdfjs/web/viewer.html?file=../../Homeplus.pdf#toolbar=0" class="pdf-iframe" title="Homeplus Group Profile" width="100%" height="100%"></iframe>
+              <iframe data-src="assets/pdfjs/web/viewer.html?file=../../Homeplus.pdf#toolbar=0" class="pdf-iframe" title="Homeplus Group Profile" width="100%" height="100%"></iframe>
               <a href="assets/Homeplus.pdf" target="_blank" class="pdf-enlarge-btn">
                 <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
                 <span>Enlarge View</span>
@@ -196,7 +196,7 @@
     <!-- CTA Banner -->
     <section class="cta-banner">
       <div class="cta-banner__bg" style="position: absolute; inset: 0; z-index: 0;">
-        <img loading="lazy" decoding="async" src="assets/pool ved 12.jpeg" alt="Luxury Pool" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4);">
+        <img loading="lazy" decoding="async" src="assets/compressed/pool ved 12.webp" alt="Luxury Pool" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4);">
       </div>
       <div class="container" style="position: relative; z-index: 1;">
         <h2 class="cta-banner__heading">Ready To Build Your Dream Pool?</h2>
@@ -261,6 +261,30 @@
   <script src="js/scroll.js"></script>
   <script src="js/counters.js"></script>
   <script src="js/parallax.js"></script>
+
+  <!-- Lazy-load PDF iframes -->
+  <script>
+    (function() {
+      var lazyIframes = document.querySelectorAll('iframe[data-src]');
+      if (lazyIframes.length && 'IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var iframe = entry.target;
+              iframe.src = iframe.getAttribute('data-src');
+              iframe.removeAttribute('data-src');
+              observer.unobserve(iframe);
+            }
+          });
+        }, { rootMargin: '200px 0px' });
+        lazyIframes.forEach(function(iframe) { observer.observe(iframe); });
+      } else {
+        lazyIframes.forEach(function(iframe) {
+          iframe.src = iframe.getAttribute('data-src');
+        });
+      }
+    })();
+  </script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
